@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+    margin:0;
+    padding:0;
+    font-family:Arial, sans-serif;
+}
+
+/* ===== Responsive helpers ===== */
+*{box-sizing:border-box;}
+
+/* Small screens: prevent overflow due to large fixed paddings/heights */
+@media (max-width: 900px){
+    .hero{padding:40px 20px;}
+    .hero-content{width:100%;}
+
+    .features,
+    .steps,
+    .templates,
+    .testimonials,
+    .pricing,
+    .faq,
+    .about{
+        padding:50px 20px;
+    }
+
+    .footer{padding:40px 20px 20px;}
+
+    .resume-img{max-width:100%; width:100%; height:auto;}
+
+    .features h2,
+    .steps h2,
+    .templates h2,
+    .testimonials h2,
+    .pricing h2,
+    .faq h2,
+    .about h2{
+        font-size:34px;
+        margin-bottom:25px;
+    }
+
+    .hero h1{font-size:36px;}
+}
+
+@media (max-width: 600px){
+    .container{padding:0;}
+
+    /* Stack hero */
+    .hero{flex-direction:column; align-items:flex-start; gap:18px;}
+
+    /* Reduce navbar spacing */
+    .navbar{padding:0 4px;}
+
+    /* Make sections tighter */
+    .features,
+    .steps,
+    .templates,
+    .testimonials,
+    .pricing,
+    .faq,
+    .about{
+        padding:35px 15px;
+    }
+
+    .menu{gap:14px; flex-wrap:wrap;}
+
+    .hero-content{width:100%;}
+    .hero h1{font-size:32px;}
+    .hero p{font-size:16px;}
+
+    .template-card img{height:260px;}
+    .pricing{padding-left:15px; padding-right:15px;}
+
+    .testimonial-card{width:100%;}
+    .pricing-card{width:100%;}
+    .card{width:100%; max-width:320px;}
+}
+
+/* ===== End responsive helpers ===== */
+
+
+.container{
+    width:100%;
+    background-color:beige;
+    padding:0 20px;
+    box-sizing:border-box;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.menu{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:black;
+    font-weight:500;
+}
+
+.menu a:hover{
+    color:blue;
+}
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:80px 100px;
+    background:#fff;
+}
+
+.hero-content{
+    width:50%;
+}
+
+.hero h1{
+    font-size:55px;
+    color:#1E3A8A;
+}
+
+.hero p{
+    font-size:20px;
+    color:#555;
+    line-height:1.6;
+}
+
+.btn{
+    background:#2563EB;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.btn2{
+    background:transparent;
+    border:2px solid #2563EB;
+    color:#2563EB;
+    padding:12px 25px;
+    border-radius:8px;
+    margin-left:10px;
+}
+.resume-img{
+    width:450px;
+    height:auto;
+    border-radius:10px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);
+}
+.features{
+    padding:80px 100px;
+    background:#F8FAFC;
+    text-align:center;
+}
+
+.features h2{
+    font-size:40px;
+    color:#1E3A8A;
+    margin-bottom:50px;
+}
+
+.feature-container{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.card{
+    width:250px;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h3{
+    color:#2563EB;
+}
+
+.card p{
+    color:#555;
+}
+.steps{
+    padding:80px 100px;
+    background:white;
+    text-align:center;
+}
+
+.steps h2{
+    font-size:40px;
+    color:#1E3A8A;
+    margin-bottom:50px;
+}
+
+.step-container{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.step-card{
+    width:280px;
+    padding:25px;
+    border-radius:12px;
+    background:#F8FAFC;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+.step-number{
+    width:60px;
+    height:60px;
+    background:#2563EB;
+    color:white;
+    border-radius:50%;
+    margin:auto;
+    line-height:60px;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.step-card h3{
+    margin-top:20px;
+    color:#1E3A8A;
+}
+
+.step-card p{
+    color:#555;
+}
+.templates{
+    padding:80px 100px;
+    background:#F8FAFC;
+    text-align:center;
+}
+
+.templates h2{
+    font-size:40px;
+    color:#1E3A8A;
+    margin-bottom:15px;
+}
+
+.template-text{
+    color:#555;
+    margin-bottom:40px;
+}
+
+.template-container{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.template-card{
+    width:300px;
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.template-card:hover{
+    transform:translateY(-10px);
+}
+
+.template-card img{
+    width:100%;
+    height:400px;
+    object-fit:cover;
+}
+
+.template-card h3{
+    color:#1E3A8A;
+}
+
+.template-card button{
+    margin-bottom:20px;
+    background:#2563EB;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:6px;
+    cursor:pointer;
+}
+.stats{
+    padding:80px 100px;
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    margin-top: 10px;
+    background:white;
+    text-align:center;
+}
+
+.stat-box{
+    margin:20px;
+}
+
+.stat-box h2{
+    font-size:50px;
+    color:#2563EB;
+    margin:0;
+}
+
+.stat-box p{
+    color:#555;
+    font-size:18px;
+}
+.testimonials{
+    padding:80px 100px;
+    background:#F8FAFC;
+    text-align:center;
+}
+
+.testimonials h2{
+    font-size:40px;
+    color:#1E3A8A;
+    margin-bottom:50px;
+}
+
+.testimonial-container{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.testimonial-card{
+    width:350px;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.testimonial-card:hover{
+    transform:translateY(-10px);
+}
+
+.testimonial-card h3{
+    color:#2563EB;
+    margin-bottom:15px;
+}
+
+.testimonial-card p{
+    color:#555;
+    line-height:1.7;
+    font-size:16px;
+}
+.pricing{
+    padding:80px 100px;
+    background:white;
+    text-align:center;
+}
+
+.pricing h2{
+    font-size:40px;
+    color:#1E3A8A;
+}
+
+.pricing-text{
+    color:#555;
+    margin-bottom:50px;
+}
+
+.pricing-container{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.pricing-card{
+    width:300px;
+    background:#F8FAFC;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.pricing-card:hover{
+    transform:translateY(-10px);
+}
+
+.pricing-card h1{
+    color:#2563EB;
+    margin:20px 0;
+}
+
+.pricing-card ul{
+    list-style:none;
+    padding:0;
+}
+
+.pricing-card li{
+    margin:15px 0;
+    color:#555;
+}
+
+.pricing-card button{
+    background:#2563EB;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.premium{
+    border:3px solid #2563EB;
+}
+.faq{
+    padding:80px 100px;
+    background:#F8FAFC;
+    text-align:center;
+}
+
+.faq h2{
+    font-size:40px;
+    color:#1E3A8A;
+    margin-bottom:50px;
+}
+
+.faq-container{
+    max-width:900px;
+    margin:auto;
+}
+
+.faq-item{
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+    text-align:left;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.faq-item h3{
+    color:#2563EB;
+    margin-bottom:10px;
+}
+
+.faq-item p{
+    color:#555;
+    line-height:1.6;
+}
+.about{
+    padding:80px 100px;
+    background:white;
+    text-align:center;
+}
+
+.about h2{
+    font-size:40px;
+    color:#1E3A8A;
+    margin-bottom:25px;
+}
+
+.about p{
+    max-width:800px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.8;
+    color:#555;
+}
+
+.about-container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:50px;
+    margin-top:50px;
+    flex-wrap:wrap;
+}
+
+.about-text{
+    flex:1;
+    text-align:left;
+}
+
+.about-text h3{
+    color:#2563EB;
+    font-size:28px;
+    margin-bottom:15px;
+}
+
+.about-text p{
+    font-size:17px;
+    line-height:1.7;
+}
+
+.about-image{
+    flex:1;
+}
+
+.about-image img{
+    width:100%;
+    max-width:450px;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);
+}
+
+
+.footer{
+    background:#111827;
+    color:white;
+    padding:60px 100px 20px;
+}
+
+
+.footer-container{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:40px;
+}
+
+.footer-section{
+    flex:1;
+    min-width:200px;
+}
+
+.footer-section h3{
+    margin-bottom:20px;
+    color:#60A5FA;
+}
+
+.footer-section p{
+    color:#D1D5DB;
+    line-height:1.7;
+}
+
+.footer-section a{
+    display:block;
+    color:#D1D5DB;
+    text-decoration:none;
+    margin-bottom:10px;
+    transition:0.3s;
+}
+
+.footer-section a:hover{
+    color:#60A5FA;
+}
+
+.footer-bottom{
+    text-align:center;
+    border-top:1px solid #374151;
+    margin-top:40px;
+    padding-top:20px;
+    color:#9CA3AF;
+}
+        
+</style>
+<body>
+    <div class="container">
+    <nav class="navbar">
+
+        <div class="logo">
+            <img src="logo.png" alt="Logo" width="35">
+            <h2>AI RESUME</h2>
+        </div>
+
+        <ul class="menu">
+            <li><a href="#home">Home</a></li>
+           <li><a href="#features">Features</a></li>
+           <li><a href="#templates">Templates</a></li>
+           <li><a href="#pricing">Pricing</a></li>
+           <li><a href="#about">About</a></li>
+          <li><a href="#login">Login</a></li>
+        </ul>
+
+    </nav>
+</div>
+<div class="hero">
+    <div class="hero-content" id="home">
+        <h1>Create Professional Resumes With AI</h1>
+
+        <p>
+            Build ATS-friendly resumes in minutes using AI.
+            Choose from modern templates and get hired faster.
+        </p>
+
+        <button class="btn">Create Resume Free</button>
+        <button class="btn2">View Templates</button>
+    </div>
+
+   <div class="hero-image">
+    <img src="s.jpg" alt="Resume Preview" class="resume-img">
+</div>
+</div>
+<section class="features" id="features">
+
+    <h2>Why Choose Our AI Resume Builder?</h2>
+
+    <div class="feature-container">
+
+        <div class="card">
+            <h3>🤖 AI-Powered Writing</h3>
+            <p>Create professional resume content instantly using AI.</p>
+        </div>
+
+        <div class="card">
+            <h3>📄 ATS Friendly</h3>
+            <p>Build resumes optimized for Applicant Tracking Systems.</p>
+        </div>
+
+        <div class="card">
+            <h3>🎨 Modern Templates</h3>
+            <p>Choose from professional and attractive resume designs.</p>
+        </div>
+
+        <div class="card">
+            <h3>⬇️ PDF Download</h3>
+            <p>Download your resume instantly in PDF format.</p>
+        </div>
+
+    </div>
+</section>
+<section class="steps">
+
+    <h2>How It Works</h2>
+
+    <div class="step-container">
+
+        <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Enter Your Details</h3>
+            <p>
+                Fill in your personal information, education,
+                skills, and work experience.
+            </p>
+        </div>
+
+        <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>AI Creates Resume</h3>
+            <p>
+                Our AI generates a professional ATS-friendly
+                resume within seconds.
+            </p>
+        </div>
+
+        <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Download & Apply</h3>
+            <p>
+                Download your resume as a PDF and start applying
+                for jobs immediately.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+<section class="templates" id="templates">
+
+    <h2>Professional Resume Templates</h2>
+
+    <p class="template-text">
+        Choose from modern, ATS-friendly resume templates designed by professionals.
+    </p>
+
+    <div class="template-container">
+
+        <div class="template-card">
+            <img src="s1.jpg" alt="Template 1">
+            <h3>Modern Resume</h3>
+            <button>Use Template</button>
+        </div>
+
+        <div class="template-card">
+            <img src="s2.jpg" alt="Template 2">
+            <h3>Professional Resume</h3>
+            <button>Use Template</button>
+        </div>
+
+        <div class="template-card">
+            <img src="s3.jpg" alt="Template 3">
+            <h3>Creative Resume</h3>
+            <button>Use Template</button>
+        </div>
+
+    </div>
+</section>
+<section class="stats">
+
+    <div class="stat-box">
+        <h2>50K+</h2>
+        <p>Resumes Created</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>10K+</h2>
+        <p>Users Hired</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>100+</h2>
+        <p>Resume Templates</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>95%</h2>
+        <p>ATS Success Rate</p>
+    </div>
+</section>
+
+    <section class="testimonials">
+
+    <h2>What Our Users Say</h2>
+
+    <div class="testimonial-container">
+
+        <div class="testimonial-card">
+            <h3>⭐⭐⭐⭐⭐</h3>
+            <h4>Rahul Sharma</h4>
+            <p>
+                This AI Resume Builder helped me create a professional
+                resume in minutes. I received interview calls much faster.
+            </p>
+        </div>
+
+        <div class="testimonial-card">
+            <h3>⭐⭐⭐⭐⭐</h3>
+            <h4>Priya Patel</h4>
+            <p>
+                The templates are modern and ATS-friendly.
+                Highly recommended for freshers and professionals.
+            </p>
+        </div>
+
+        <div class="testimonial-card">
+            <h3>⭐⭐⭐⭐⭐</h3>
+            <h4>Aman Verma</h4>
+            <p>
+                Very easy to use. The AI suggestions improved my resume
+                and helped me stand out.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+<section class="pricing" id="pricing">
+
+    <h2>Choose Your Plan</h2>
+
+    <p class="pricing-text">
+        Start for free and upgrade when you need more features.
+    </p>
+
+    <div class="pricing-container">
+
+        <div class="pricing-card">
+            <h3>Free</h3>
+            <h1>₹0</h1>
+
+            <ul>
+                <li>✓ 1 Resume</li>
+                <li>✓ Basic Templates</li>
+                <li>✓ PDF Download</li>
+                <li>✓ AI Suggestions</li>
+            </ul>
+
+            <button>Get Started</button>
+        </div>
+
+        <div class="pricing-card premium">
+            <h3>Premium</h3>
+            <h1>₹299</h1>
+
+            <ul>
+                <li>✓ Unlimited Resumes</li>
+                <li>✓ All Templates</li>
+                <li>✓ Advanced AI Writing</li>
+                <li>✓ Cover Letter Generator</li>
+                <li>✓ Priority Support</li>
+            </ul>
+
+            <button>Choose Plan</button>
+        </div>
+
+        <div class="pricing-card">
+            <h3>Business</h3>
+            <h1>₹999</h1>
+
+            <ul>
+                <li>✓ Team Access</li>
+                <li>✓ Unlimited Downloads</li>
+                <li>✓ Premium Templates</li>
+                <li>✓ AI Optimization</li>
+            </ul>
+
+            <button>Contact Us</button>
+        </div>
+
+    </div>
+
+</section>
+<section class="faq">
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-container">
+
+        <div class="faq-item">
+            <h3>Is the AI Resume Builder free to use?</h3>
+            <p>
+                Yes, you can create and download a basic resume for free.
+                Premium plans unlock advanced features and templates.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Are the resumes ATS-friendly?</h3>
+            <p>
+                Yes, all our templates are designed to pass Applicant
+                Tracking Systems (ATS) used by employers.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can I download my resume as a PDF?</h3>
+            <p>
+                Absolutely! You can download your resume in PDF format
+                with a single click.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can I edit my resume later?</h3>
+            <p>
+                Yes, your resume is saved in your account and can be
+                edited anytime.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Does the AI generate resume content?</h3>
+            <p>
+                Yes, our AI can generate professional summaries,
+                skills, achievements, and work experience descriptions.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can I create multiple resumes?</h3>
+            <p>
+                Premium users can create and manage unlimited resumes
+                for different job applications.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+<section class="about" id="about">
+
+    <h2>About AI Resume Builder</h2>
+
+    <p>
+        AI Resume Builder helps job seekers create professional,
+        ATS-friendly resumes in minutes using advanced AI technology.
+    </p>
+
+    <div class="about-container">
+
+        <div class="about-text">
+            <h3>Build Better Resumes Faster</h3>
+
+            <p>
+                Our platform uses artificial intelligence to generate
+                professional summaries, skills, achievements, and resume
+                content that helps you stand out from the competition.
+            </p>
+
+            <p>
+                Whether you're a fresher, student, or experienced
+                professional, our AI-powered tools make resume creation
+                simple and effective.
+            </p>
+        </div>
+
+        <div class="about-image">
+            <img src="about.png" alt="About AI Resume">
+        </div>
+
+    </div>
+
+</section>
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-section">
+            <h3>AI Resume</h3>
+            <p>
+                Create professional, ATS-friendly resumes in minutes
+                with the power of AI.
+            </p>
+        </div>
+
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <a href="#">Home</a>
+            <a href="#">Features</a>
+            <a href="#">Templates</a>
+            <a href="#">Pricing</a>
+        </div>
+
+        <div class="footer-section">
+            <h3>Support</h3>
+            <a href="#">Contact Us</a>
+            <a href="#">FAQ</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+        </div>
+
+        <div class="footer-section">
+            <h3>Connect With Us</h3>
+            <a href="#">LinkedIn</a>
+            <a href="#">GitHub</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 AI Resume Builder. All Rights Reserved.</p>
+    </div>
+
+</footer>
+</body>
+</html>
